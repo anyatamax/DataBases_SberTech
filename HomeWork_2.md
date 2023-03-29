@@ -26,6 +26,10 @@
 Дальше чуть посложнее, посмотрим в нескольких городах и чтобы категория была не Fast Food Restaurant db['american-fast-food'].find( { city: { $in: ["Brooklyn", "Detroit", "Newton" ] }, categories: { $ne: "Fast Food Restaurant" } } ):  
 <img width="1339" alt="Screen Shot 2023-03-29 at 14 44 36" src="https://user-images.githubusercontent.com/71087982/228609785-e25c67d0-cb5f-4fb7-901e-88036a278f46.png">  
 <img width="1103" alt="Screen Shot 2023-03-29 at 14 44 12" src="https://user-images.githubusercontent.com/71087982/228610189-79925ba3-5559-475d-8fd0-1249e27c64ad.png">  
+Теперь применим регулярные выражения и посмотрим в этих городах фаст-фуд, в названии которого есть слово American db['american-fast-food'].find( { city: ( $in: [ "Brooklyn", "Detroit", "Newton"] }, categories: { $regex:
+"American" } } )  
+<img width="1332" alt="Screen Shot 2023-03-29 at 10 37 21" src="https://user-images.githubusercontent.com/71087982/228611347-c01fa186-ba2f-4a64-aab1-b430a956884f.png">  
+## Обновление данных  
 
 
 
