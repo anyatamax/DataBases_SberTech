@@ -1,4 +1,4 @@
-## MongoDB  
+# MongoDB  
 Для начала необходимо скачать Docker и Mongo Compass.  
 Далее в папке, в которой я работаю, создала файл docker-compose.yml:  
 <img width="519" alt="Screen Shot 2023-03-29 at 07 07 00" src="https://user-images.githubusercontent.com/71087982/228604642-83264cae-fe1a-4f1a-a7d1-767c9aeb4297.png">  
@@ -14,6 +14,6 @@
  <img width="592" alt="Screen Shot 2023-03-29 at 09 53 51" src="https://user-images.githubusercontent.com/71087982/228606822-cdaac8e8-8fc2-411b-b3af-a4a41f6b771b.png">
 Проверила, что загрузилось через команду db['american-fast-food'].find():  
 <img width="1032" alt="Screen Shot 2023-03-29 at 09 59 44" src="https://user-images.githubusercontent.com/71087982/228607235-beca55e7-f358-44f9-b27a-2ba97896afff.png">
-./
-./
-# Запрос поиска find
+  
+  
+## Запрос поиска find
