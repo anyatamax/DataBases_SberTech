@@ -8,3 +8,7 @@
 <img width="1267" alt="Screen Shot 2023-03-29 at 07 06 15" src="https://user-images.githubusercontent.com/71087982/228605519-a2ff6e63-090e-4f88-9900-ef5bed0ce656.png">
 В Mongo Compose так же получилось подключиться по локальному хосту 27017:27017:  
 <img width="1415" alt="Screen Shot 2023-03-29 at 07 06 23" src="https://user-images.githubusercontent.com/71087982/228605784-4519448f-996b-470b-8e38-8574cfa1e2d0.png">
+Все заработало, значит можно создавать базу данных!  Создала через: use fast food и db.createCollection('american-fast-food'). 
+<img width="353" alt="Screen Shot 2023-03-29 at 09 54 08" src="https://user-images.githubusercontent.com/71087982/228606251-38b96887-bf4f-4e57-aeb1-0d30c80b3eb6.png">  
+Взяла уже готовую базу данных ([с сайта](https://www.kaggle.com/datasets/thedevastator/fast-food-restaurants-in-the-united-states?resource=download)) и загрузила ее через интерфейс программы Mongo Compose:  
+ <img width="592" alt="Screen Shot 2023-03-29 at 09 53 51" src="https://user-images.githubusercontent.com/71087982/228606822-cdaac8e8-8fc2-411b-b3af-a4a41f6b771b.png">
