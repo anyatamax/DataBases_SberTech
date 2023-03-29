@@ -49,7 +49,15 @@
 <img width="980" alt="Screen Shot 2023-03-29 at 19 06 04" src="https://user-images.githubusercontent.com/71087982/228662295-7d152d13-b2c3-4810-887e-743afaf333a3.png">  
 А теперь попробуем удалить поле из объекта. 
 <img width="966" alt="Screen Shot 2023-03-29 at 19 09 31" src="https://user-images.githubusercontent.com/71087982/228662615-ccffa979-9d9c-4a4a-9270-c98a8fe7f624.png">
-
-
-
+## Индексы  
+Проанализируем сколько времени и документов нужно посмотреть, чтобы выполнить данный запрос:  
+<img width="1280" alt="Screen Shot 2023-03-30 at 00 11 32" src="https://user-images.githubusercontent.com/71087982/228668864-52eca30c-239e-4e65-91a0-e4c350a6b0b4.png">  
+Получаем:  
+<img width="541" alt="Screen Shot 2023-03-30 at 00 07 43" src="https://user-images.githubusercontent.com/71087982/228668941-99c8cdbe-74b6-443f-91a4-5863ad015446.png">  
+То есть надо посмтреть 9999 документов и это занимает времени 9951.  
+Теперь создадим индекс на поле сity  
+<img width="441" alt="Screen Shot 2023-03-30 at 00 11 38" src="https://user-images.githubusercontent.com/71087982/228669393-686a15de-c5b9-41f1-9340-a61e8cd570f2.png">  
+И посмотрим на анализ теперь:  
+<img width="530" alt="Screen Shot 2023-03-30 at 00 11 00" src="https://user-images.githubusercontent.com/71087982/228669532-bebed804-4a5d-410c-bce5-001a70761cfb.png">  
+Сейчас нужно просмотреть всего 62 документа и времени надо 15, что значительно меньше, значит индексы реально помогают
 
