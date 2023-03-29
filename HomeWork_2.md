@@ -30,6 +30,23 @@
 "American" } } )  
 <img width="1332" alt="Screen Shot 2023-03-29 at 10 37 21" src="https://user-images.githubusercontent.com/71087982/228611347-c01fa186-ba2f-4a64-aab1-b430a956884f.png">  
 ## Обновление данных  
+Попробуем заменить какое то поле объекта с айдишником AWEw nira4HuVbedNUaj:  
+<img width="1029" alt="Screen Shot 2023-03-29 at 14 52 39" src="https://user-images.githubusercontent.com/71087982/228661093-6564e7b7-cb2f-41fb-9176-e8d7e687d640.png">  
+Изменим категорию командой db['american-fast-food'].update( { id:"AWEw nira4HuVbedNUai"), { $set: { categories: "Ice Cream Shop" } } ):  
+<img width="1040" alt="Screen Shot 2023-03-29 at 14 52 48" src="https://user-images.githubusercontent.com/71087982/228661323-ef9184c4-faee-429b-b4b5-2828bc74d866.png">  
+А теперь вставим вообще новый объект вместо этого:  
+<img width="1372" alt="Screen Shot 2023-03-29 at 14 57 08" src="https://user-images.githubusercontent.com/71087982/228661507-7c7a1f26-2dce-4045-96d4-ef5f4c18d455.png">  
+Теперь поэкспериментируем с множественной заменой и поменяем Макдональдс на наше русское название)  
+<img width="1238" alt="Screen Shot 2023-03-29 at 14 59 25" src="https://user-images.githubusercontent.com/71087982/228661721-87d3550d-a816-45be-8b92-3f08e8cd86df.png">  
+Вот такой командой:  
+<img width="814" alt="Screen Shot 2023-03-29 at 15 00 22" src="https://user-images.githubusercontent.com/71087982/228661780-1193dd5c-3825-4fa9-89a1-05fc0b595322.png">  
+И получилось!  
+<img width="1239" alt="Screen Shot 2023-03-29 at 15 00 53" src="https://user-images.githubusercontent.com/71087982/228661849-4e2c5d72-8676-4efe-abde-ee3e1fc89382.png">  
+## Удаление данных  
+Удалим объект с айдишником AWEw nira4HuVbedNUaj:  
+<img width="980" alt="Screen Shot 2023-03-29 at 19 06 04" src="https://user-images.githubusercontent.com/71087982/228662295-7d152d13-b2c3-4810-887e-743afaf333a3.png">  
+А теперь попробуем удалить поле из объекта. 
+<img width="966" alt="Screen Shot 2023-03-29 at 19 09 31" src="https://user-images.githubusercontent.com/71087982/228662615-ccffa979-9d9c-4a4a-9270-c98a8fe7f624.png">
 
 
 
