@@ -19,7 +19,7 @@
 ## Запрос поиска find  
 Узнаем есть ли фаст-фуд еда в Brooklyn: db['american-fast-food'].find( { city: "Brooklyn"} ): 
 <img width="1032" alt="Screen Shot 2023-03-29 at 10 08 17" src="https://user-images.githubusercontent.com/71087982/228608189-d05f5948-32d0-4ab2-ad14-b3269f26cee1.png">
-<img width="525" alt="Screen Shot 2023-03-29 at 10 08 26" src="https://user-images.githubusercontent.com/71087982/228608219-caeb0a30-4bf5-43ae-95e4-a4d1df55f446.png">
+<img width="525" alt="Screen Shot 2023-03-29 at 10 08 26" src="https://user-images.githubusercontent.com/71087982/228608219-caeb0a30-4bf5-43ae-95e4-a4d1df55f446.png">  
 А категории Fast Food Restaurants?  db['american-fast-food'].find( { city: "Brooklyn", categories:"Fast Food Restaurants"} ).  Уже поменьше)  
 <img width="1036" alt="Screen Shot 2023-03-29 at 10 10 11" src="https://user-images.githubusercontent.com/71087982/228608627-c3b3a980-9973-45b1-af4e-f7a953168dc0.png">. 
 <img width="794" alt="Screen Shot 2023-03-29 at 10 10 19" src="https://user-images.githubusercontent.com/71087982/228608652-d6931bec-aec4-438c-9bc5-d3ae02c78d84.png">
