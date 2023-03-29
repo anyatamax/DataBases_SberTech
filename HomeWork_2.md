@@ -22,5 +22,11 @@
 <img width="525" alt="Screen Shot 2023-03-29 at 10 08 26" src="https://user-images.githubusercontent.com/71087982/228608219-caeb0a30-4bf5-43ae-95e4-a4d1df55f446.png">  
 А категории Fast Food Restaurants?  db['american-fast-food'].find( { city: "Brooklyn", categories:"Fast Food Restaurants"} ).  Уже поменьше)  
 <img width="1036" alt="Screen Shot 2023-03-29 at 10 10 11" src="https://user-images.githubusercontent.com/71087982/228608627-c3b3a980-9973-45b1-af4e-f7a953168dc0.png">. 
-<img width="794" alt="Screen Shot 2023-03-29 at 10 10 19" src="https://user-images.githubusercontent.com/71087982/228608652-d6931bec-aec4-438c-9bc5-d3ae02c78d84.png">
+<img width="794" alt="Screen Shot 2023-03-29 at 10 10 19" src="https://user-images.githubusercontent.com/71087982/228608652-d6931bec-aec4-438c-9bc5-d3ae02c78d84.png">  
+Дальше чуть посложнее, посмотрим в нескольких городах и чтобы категория была не Fast Food Restaurant db['american-fast-food'].find( { city: { $in: ["Brooklyn", "Detroit", "Newton" ] }, categories: { $ne: "Fast Food Restaurant" } } ):  
+<img width="1339" alt="Screen Shot 2023-03-29 at 14 44 36" src="https://user-images.githubusercontent.com/71087982/228609785-e25c67d0-cb5f-4fb7-901e-88036a278f46.png">  
+<img width="1103" alt="Screen Shot 2023-03-29 at 14 44 12" src="https://user-images.githubusercontent.com/71087982/228610189-79925ba3-5559-475d-8fd0-1249e27c64ad.png">  
+
+
+
 
