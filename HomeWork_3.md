@@ -43,6 +43,7 @@ services:
 <img width="281" alt="Screen Shot 2023-04-19 at 04 50 03" src="https://user-images.githubusercontent.com/71087982/233181914-fe11fc1e-7482-4cbb-b38d-475d61132244.png">  
 Ответ получен, значит все ок
 ## Тестирование:  
+Нам нужен большой набор данных json, которые потом сохраним в виде разных структур - строка, hset, zset, list. Возьмем например файл отсюда https://raw.githubusercontent.com/json-iterator/test-data/master/large-file.json  
 Проще всего оказалось работать с redis через python, поэтому напишем файл redis_db.py, с помощью которого замерим время: 
 ```
 import redis
