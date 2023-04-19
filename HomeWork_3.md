@@ -39,7 +39,7 @@ services:
     networks:
       -  redis_network
 ```  
-Запустим докер с помощью команды anymax$ docker-compose -f docker-compose.yml up -d. Затем проверим, что все корректно работает с помощью такой команды:  
+Запустим докер с помощью команды docker-compose -f docker-compose.yml up -d. Затем проверим, что все корректно работает с помощью такой команды:  
 <img width="281" alt="Screen Shot 2023-04-19 at 04 50 03" src="https://user-images.githubusercontent.com/71087982/233181914-fe11fc1e-7482-4cbb-b38d-475d61132244.png">  
 Ответ получен, значит все ок
 ## Тестирование:  
@@ -118,4 +118,48 @@ db_test.flushall()
 ```
 Запускаем и смотрим на результаты:  
 <img width="377" alt="Screen Shot 2023-04-19 at 06 12 31" src="https://user-images.githubusercontent.com/71087982/233183029-ff6fac1c-caff-4675-b363-9bcaf2651a14.png">  
+Интересно, что время заполнения и получения значения по ключю одинаковое примерно  
+## Redis на трех нодах  
+Потратив немало часов на поиски файла docker-compose.yml, который будет работать, получаем такой файл:  
+```
+version: '3.7'
+services:
+  master:
+    image: redis
+    container_name: redis-master
+    restart: always
+    command: redis-server --port 6379 --appendonly yes
+    ports:
+      - 6379:6379
+    volumes:
+      - ./data:/data
+ 
+  slave1:
+    image: redis
+    container_name: redis-slave-1
+    restart: always
+    command: redis-server --slaveof 192.168.8.188 6379 --port 6380   --appendonly yes
+    ports:
+      - 6380:6380
+    volumes:
+      - ./data:/data
+ 
+ 
+  slave2:
+    image: redis
+    container_name: redis-slave-2
+    restart: always
+    command: redis-server --slaveof 192.168.8.188 6379 --port 6381  --appendonly yes
+    ports:
+      - 6381:6381
+    volumes:
+      - ./data:/data
+```  
+Здесь как раз содаются 3 ноды для Redis - один мастер и две slave  
+Запускаем с помощью команды docker-compose -f docker-compose.yml up -d и проверяем, что все работает на нашем порту:  
+<img width="575" alt="Screen Shot 2023-04-19 at 22 28 08" src="https://user-images.githubusercontent.com/71087982/233183904-8a94e2cb-1609-4f7a-a569-0136317148b0.png">  
+## Тестирование
+Теперь с помощью того же файла redis_db.py делаем замеры времени:  
+<img width="406" alt="Screen Shot 2023-04-19 at 22 31 19" src="https://user-images.githubusercontent.com/71087982/233184063-e0231803-224f-4bc3-a436-6fc42264bd68.png">  
+Стало работать дольше. Это произошло из за того что теперь надо поддерживать связь с тремя нодами, а на коммуникацию уходит время. При этом теперь время добавления и получения отличаются сильнее, чем на одной ноде. Но теперь надежность повысилась
 
