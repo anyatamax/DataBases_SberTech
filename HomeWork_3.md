@@ -38,4 +38,8 @@ services:
       -  rtdb:/db
     networks:
       -  redis_network
-```
+```  
+Запустим докер с помощью команды anymax$ docker-compose -f docker-compose.yml up -d. Затем проверим, что все корректно работает с помощью такой команды:  
+<img width="281" alt="Screen Shot 2023-04-19 at 04 50 03" src="https://user-images.githubusercontent.com/71087982/233181914-fe11fc1e-7482-4cbb-b38d-475d61132244.png">  
+Ответ получен, значит все ок
+
