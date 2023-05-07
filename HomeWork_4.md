@@ -45,7 +45,27 @@ GeoMesa - это лицензированный Apache набор инструм
 Для простоты использования проект создает связанный артефакт, который содержит все необходимые зависимости в одном JAR. Чтобы построить, запустите:  
 <img width="701" alt="Screen Shot 2023-05-07 at 10 06 31" src="https://user-images.githubusercontent.com/71087982/236663092-5a7d03e3-fce5-42f2-8675-73e199f6d736.png">  
 И чтобы запустить туториал, надо повторить эту команду (Redis у меня работает на localhost:6379)  
-```java -cp geomesa-tutorials-redis/geomesa-tutorials-redis-quickstart/target/geomesa-tutorials-redis-quickstart-4.1.0-SNAPSHOT.jar     org.geomesa.example.redis.RedisQuickStart     --redis.url localhost:6379 --redis.catalog geomesa```
+```java -cp geomesa-tutorials-redis/geomesa-tutorials-redis-quickstart/target/geomesa-tutorials-redis-quickstart-4.1.0-SNAPSHOT.jar     org.geomesa.example.redis.RedisQuickStart     --redis.url localhost:6379 --redis.catalog geomesa```  
+Тогда вы увидете такой вывод:  
+<img width="1728" alt="Screen Shot 2023-05-06 at 21 08 31" src="https://user-images.githubusercontent.com/71087982/236663183-10c068a1-e84c-4ffa-a644-7cceed99ead4.png">  
+Что же там произошло?  
+Начнем с самой базы данных. Она находится в файлике 20180101000000.export, ее вполне хватит для ознакомления с Geomesa, и она выглядит так:  
+<img width="1727" alt="Screen Shot 2023-05-06 at 21 15 14" src="https://user-images.githubusercontent.com/71087982/236663233-7fa5cfb1-9145-4c62-97f4-9ba0784c7f74.png">  
+Исходный код предназначен для того, чтобы быть доступным для этого руководства. Основная логика содержится в общем org.geomesa.example.quickstart.GeoMesaQuickStart в модуле geomesa-tutorials-common, который не зависит от хранилища данных. Вот некоторые соответствующие методы:  
+* createDataStore получение экземпляра хранилища данных из входной конфигурации
+* createSchema создание схемы в хранилище данных в качестве предварительного условия для записи данных
+* writeFeatures использование FeatureWriter для записи объектов в хранилище данных
+* queryFeatures выполнение несколько запросов к хранилищу
+* cleanup удаление образцы данных и утилизируйте экземпляр хранилища данных
+Быстрый запуск использует небольшое подмножество данных GDELT. Код для синтаксического анализа данных в GeoTools SimpleFeatures содержится в org.geomesa.example.data.GDELTData:
+* getSimpleFeatureType создает SimpleFeatureType, представляющий данные
+* getTestData анализирует встроенный TSV-файл для создания объектов
+* SimpleFeature getTestQueries иллюстрирует несколько различных типов запросов, используя CQL (язык контекстных запросов GeoTools)
+
+Весть код взаимодействия с базой данных написан на java, я конечно в этом языке не разбираюсь, но мы можем увидеть где именно создаются запросы к базе данных:  
+<img width="791" alt="Screen Shot 2023-05-06 at 21 53 10" src="https://user-images.githubusercontent.com/71087982/236663339-e03bef0d-16b4-4df4-8a38-9724c23d244a.png">  
+Можно понять, что таким образом мы берем точку, промежуток времени и добавляем какие-то аттрибуты к нашему запросу (дополнительные фильтры). Это же можно видеть на экране, что нам выдала основная команда в терминале. Там происходит четыре запроса и по ним выдаются ответы из нашей таблицы
+
 
 ## Хранилища данных
 Хранилища данных, которые GeoMesa использует для долгосрочного хранения, представляют собой базы данных "ключ-значение", тип базы данных NoSQL, в которой каждая запись хранится и извлекается с использованием уникального идентификатора для этой записи, известного как ключ. Accumulo и HBase сортируют эти ключи и могут хранить их на любом количестве узлов (серверов).
