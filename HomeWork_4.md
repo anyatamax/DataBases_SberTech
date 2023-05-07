@@ -40,6 +40,12 @@ GeoMesa - это лицензированный Apache набор инструм
 ## Database engine
 
 ## Разворачивание Geomesa Redis
+Для начала клонируем резозиторий с туториалами для разных баз данных:  
+<img width="702" alt="Screen Shot 2023-05-06 at 20 28 40" src="https://user-images.githubusercontent.com/71087982/236663030-0ec01531-d78a-42a5-95eb-dfbde4176c84.png">  
+Для простоты использования проект создает связанный артефакт, который содержит все необходимые зависимости в одном JAR. Чтобы построить, запустите:  
+<img width="701" alt="Screen Shot 2023-05-07 at 10 06 31" src="https://user-images.githubusercontent.com/71087982/236663092-5a7d03e3-fce5-42f2-8675-73e199f6d736.png">  
+И чтобы запустить туториал, надо повторить эту команду (Redis у меня работает на localhost:6379)  
+```java -cp geomesa-tutorials-redis/geomesa-tutorials-redis-quickstart/target/geomesa-tutorials-redis-quickstart-4.1.0-SNAPSHOT.jar     org.geomesa.example.redis.RedisQuickStart     --redis.url localhost:6379 --redis.catalog geomesa```
 
 ## Хранилища данных
 Хранилища данных, которые GeoMesa использует для долгосрочного хранения, представляют собой базы данных "ключ-значение", тип базы данных NoSQL, в которой каждая запись хранится и извлекается с использованием уникального идентификатора для этой записи, известного как ключ. Accumulo и HBase сортируют эти ключи и могут хранить их на любом количестве узлов (серверов).
